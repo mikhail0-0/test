@@ -1,0 +1,24 @@
+{
+  "name": "products-history",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run migration:run && node ./src/index.js",
+    "typeorm": "npx typeorm",
+    "migration:generate": "npm run typeorm -- migration:generate -o -d ./src/config/data-source.js",
+    "migration:create": "npm run typeorm -- migration:create -o",
+    "migration:run": "npm run typeorm -- migration:run -d ./src/config/data-source.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "pg": "^8.12.0",
+    "typeorm": "^0.3.20",
+    "typeorm-naming-strategies": "^4.1.0"
+  }
+}
