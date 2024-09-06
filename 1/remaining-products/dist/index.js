@@ -14,7 +14,7 @@ const appPort = +process.env.APP_PORT;
 let productsService;
 let remainingsService;
 async function init() {
-    const sendService = new send_service_1.SendService("http://localhost:3001/message");
+    const sendService = new send_service_1.SendService(`http://${process.env.HISTORY_SERVICE_HOST}:${process.env.HISTORY_SERVICE_PORT}/message`);
     const dataSource = new typeorm_1.DataSource(data_source_1.dataSourceOptions);
     dataSource.initialize();
     productsService = new products_service_1.ProductsService(dataSource.getRepository(product_entity_1.ProductEntity), sendService);

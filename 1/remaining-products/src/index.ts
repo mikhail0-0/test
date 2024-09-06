@@ -19,7 +19,9 @@ let productsService: ProductsService;
 let remainingsService: RemainingsService;
 
 async function init(): Promise<void> {
-  const sendService = new SendService("http://localhost:3001/message");
+  const sendService = new SendService(
+    `http://${process.env.HISTORY_SERVICE_HOST}:${process.env.HISTORY_SERVICE_PORT}/message`
+  );
 
   const dataSource = new DataSource(dataSourceOptions);
   dataSource.initialize();
